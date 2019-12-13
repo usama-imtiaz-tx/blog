@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for [ @article, @article.comments.build ], local: true do |form| %>
+  
+  <%= form.input :body %>
+  <%= form.button :submit, 'Post' %>
+  
+<% end %>
+</div>

@@ -1,0 +1,29 @@
+<div class="container my-4" style="width: 80%"> 
+    <div class="p-2 ">
+      <div class="p-1 border-bottom" style="font-size: 220%; width: 90%; margin: auto"> <%= @article.title %></div>
+      <div class="my-2 text-justify" style="font-size: 100%; width: 80%; margin: auto"> <%= simple_format(@article.text) %></div>
+      
+      <% @article.all_tags.each do |tag| %>
+        <div class="my-3 badge badge-info" style="font-size: 80%"> <%= tag %></div>    
+      <% end %>  
+      
+      <div class="text-muted" style="">Author: <%= @article.user.email %></div>
+    </div>
+    
+    <div class=" p-2 border-bottom">
+    <% if @article.user == current_user %>
+      <%= link_to 'Edit', edit_article_path(@article) %> | 
+      <%= link_to 'Delete', article_path(@article), method: :delete, 
+          data: { confirm: 'Are you sure?' } 
+      %>
+    <% end %>
+    </div>
+
+    <div class="container border-bottom">  
+      <div class=""> <h3>Comments</h3></div>
+      <div class=""> <%= render @article.comments %></div>
+    </div>
+
+    <div class="container-fluid" style=""><%= render 'comments/form' %></div>
+    
+</div>

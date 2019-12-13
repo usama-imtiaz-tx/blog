@@ -1,0 +1,39 @@
+<div class="container">
+  <h2 class="mt-2">Listing Articles</h2> 
+    
+  <% @articles.each do |article| %>
+    <div class="mb-3 border rounded my-3">
+    
+          <div class="text-dark bg-light p-1">
+              <p class="pt-2 ml-2 text-capitalize "> <%= link_to article.title, article_path(article) %> </p>
+          </div>
+
+          <div class="container">
+              <div class="p-1" style="width: 90%">
+                <%= article.text.truncate(280) %>
+              </div>
+              
+              <% article.all_tags.each do |tag| %>
+                <div class="my-3 badge badge-info" style="font-size: 80%"> <%= tag %></div>    
+              <% end %>
+                           
+              <div class="text-muted" style="text-size: 50%">
+                <%= article.user.email %> | 
+                <%= article.created_at.strftime("%b %d - %y") %> | 
+                <%= article.created_at.strftime("%k:%M") %> 
+              </div>
+
+              <div class="mb-2" >
+                <% if article.user == current_user %>
+                  <button class="btn-info rounded" ><%= link_to 'Edit', edit_article_path(article),style: 'color:#FFFFFF;', class: 'css_class' %></button>
+                  <button class="btn-danger rounded"><%= link_to 'Destroy', article_path(article), method: :delete, 
+                      data: { confirm: 'Are you sure?' }, style: 'color:#FFFFFF;', class: 'css_class' 
+                  %></button>
+                <% end %>
+              </div>
+
+          </div>
+          
+    </div>
+  <% end %> 
+</div>

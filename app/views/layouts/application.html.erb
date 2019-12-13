@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Temp01</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <% if flash[:notice] %>
+    <p class="notice bg-info mb-0"> <%=notice%> </p>  
+  <% elsif flash[:alert] %>
+      <p class="alert bg-danger mb-0"> <%=alert%> </p>
+  <% end %>
+    
+  <%= render 'layouts/navbar' %>
+
+  <body class="">
+      <%= yield %>
+  </body>
+
+</html>

@@ -1,0 +1,11 @@
+<div class="container-fluid">
+<p>
+  <span class="text-muted"><%= comment.user.email%></span> : <%= comment.body %>
+<% if comment.user == current_user || @article.user == current_user%>
+  <%= link_to 'delete', [comment.article, comment],
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+</p>
+</div>

@@ -1,0 +1,26 @@
+<div class="container my-3 p-3" style="width:40%">
+  <div class="container m-auto p-2 " style="width:90%">
+    <h2>Sign up</h2>
+
+    <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <%= f.input :email %>
+      <%= f.input :username %>
+      <%= f.file_field :image%>
+      <%= f.input :designation %>
+      <%= f.input :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        
+        <br>
+
+      <%= f.button :submit, 'Sign Up' %>
+
+    <% end %>
+
+    <%# <%= render "devise/shared/links" %>
+
+  </div>
+</div>

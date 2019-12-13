@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Vector Blog</title>
+    <!-- Bootstrap core CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/icon-component.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/blog.css" rel="stylesheet">
+
+
+</head>
+<body class="no-intro-img">
+<div class="body-wrapper">
+    <!-- /.navbar -->
+    <div class="light-wrapper page-title">
+        <div class="container inner">
+            <div class="pull-left logo-width">
+                <img class="vector-logo" src="img/logo.png" alt="Vector Logo Here">
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.page-title -->
+    <div class="dark-wrapper">
+        <div class="container inner">
+            <div class="blog grid-view-img">
+                <div class="blog-posts">
+                    <div class="isotope">
+                        <!-- /.post-grid -->
+                        <% @articles.each do |article| %>
+                        <div class="post-grid">
+                            <div class="post wow fadeIn" data-wow-duration="1s" data-wow-delay="2.7s">
+                                <div class="content">
+                                    <div class="meta"><%= article.created_at %><span class="category"></span></div>
+                                    <h2 class="post-title"><a><%= link_to article.title, article_path(article) %></a></h2>
+                                </div>
+                                <!-- /.content -->
+                            </div>
+                            <!-- /.post -->
+                        </div>
+                        <% end %> 
+                        <!-- /.post-grid -->
+                    </div>
+                    <!-- /.isotope -->
+                </div>
+                <!-- /.blog-posts -->
+            </div>
+            <!-- /.blog -->
+        </div>
+        <!--/.container -->
+    </div>
+    <!--/.dark-wrapper -->
+
+
+
+</div>
+<!--/.body-wrapper -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/scripts.js"></script>
+<!-- DEMO ONLY -->
+
+<!--<script type="text/javascript" src="switcher/switchstylesheet.js"></script>-->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".changecolor").switchstylesheet( { seperator:"color"} );
+    });
+</script>
+</body>
+</html>
